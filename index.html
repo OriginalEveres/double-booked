@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>Matěj Husák - Double Booked</title>
+    <meta charset="UTF-8">
+    <script src="Event.js"></script>
+    <script src="EventManager.js"></script>
+    <script src="MainEntry.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #1B262C;
+            height: 100%;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        input:active {
+            outline: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .input-box {
+            background: #BBE1FA;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 350px;
+            padding-left: 20px;
+            padding-right: 20px;
+            min-height: 450px;
+        }
+
+        h1 {
+        
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            color: #02243A;
+            margin-top: 22px;
+            margin-bottom: 40px;
+        }
+
+        .event-item {
+            max-width: 350px;
+        }
+
+        .event-item input {
+            background: #FFFFFF;
+            border: 0.5px solid #3282B8;
+            box-sizing: border-box;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 10px;
+        }
+
+        button {
+            border: none;
+            float: right;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-style: normal;
+            padding: 12px 33px;
+            background: #0F4C75;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 250ms ease;
+        }
+
+        button:hover {
+            background-color: #166DA8;
+            box-shadow: 0px 4px 20px rgba(57, 150, 214, 0.2);
+        }
+
+        #name {
+            width: 100%;
+        }
+
+        #start {
+            width: calc(50% - 10px);
+        }
+
+        #end {
+            width: calc(50% - 10px);
+            float: right;
+        }
+
+        .blue-p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #0F4C75;
+            margin-bottom: 8px;
+            margin-top: 0px;
+        }
+
+        .confirm {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        .visit-course {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-decoration: none;
+            font-family: Roboto;
+            color: #FF6666;
+        }
+
+    </style>
+</head>
+<body>  
+
+    <div class="input-box">
+        <h1>Double booked</h1>
+
+        <p class="blue-p">Add event</p>
+        <div class="event-item">
+            <input id="name" placeholder="Event name..." type="text">
+            <input id="start" placeholder="Time from..." type="datetime-local">
+            <input id="end" placeholder="Time to..." type="datetime-local">
+        </div>
+
+        <button style="margin-top: 20px;" onclick="addEvent()">Add event</button>
+
+
+        <p style="margin-top: 60px;" class="blue-p">Events</p>
+        <p id="actual-events" style="color: ##166DA8;            font-family: Roboto;
+        font-style: normal;"></p>
+
+        <button class="confirm" onclick="showOverlaptedEvents()">Show overlapping</button>
+
+    </div>
+
+    <a class="visit-course" href="https://www.udemy.com/course/developing-html5-multiplayer-browser-games-also-know-as-io/?referralCode=8DFA7A2ABC66EF871922">Enroll in game dev course</a>
+
+    <a class="logo" href="https://solcode.net"><img src="https://solcode.cz/img/logo.png" alt=""></a>
+
+</body>
+</html>
